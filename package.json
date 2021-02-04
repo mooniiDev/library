@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "A small Library app, created with **HTML**, **CSS** and **JavaScript**. The data is stored in **localStorage**.",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mooniiDev/library.git"
+  },
+  "author": "mooniiDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mooniiDev/library/issues"
+  },
+  "homepage": "https://github.com/mooniiDev/library#readme",
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
