@@ -1,3 +1,16 @@
-body {
-  text-align: center;
+#content {
+  display: flex;
+}
+
+/* SIDE MENU STYLE */
+input {
+  width: 315px;
+}
+#book-status {
+  width: 15px;
+}
+
+/* BOOKS LIST STYLE */
+#books-list {
+  width: 100%;
 }

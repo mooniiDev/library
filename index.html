@@ -6,24 +6,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="text/css" rel="stylesheet" href="css/modern-normalize.min.css">
   <link type="text/css" rel="stylesheet" href="css/styles.css">
+  <link href="css/fontawesome.min.css" rel="stylesheet">
+  <link href="css/duotone.min.css" rel="stylesheet">
   <title>📚 Library</title>
 </head>
 
-<body>
-  <header>
-    <h1>Library</h1>
-  </header>
+<body id="content">
+  <div id="side-menu">
+    <header>
+      <h1><i class="fad fa-books"></i> Library</i></h1>
+    </header>
+    <form>
+      <input type="text" id="name" name="name" placeholder="Who is the author of the book?" required><br>
+      <input type="text" id="title" name="title" placeholder="What is the title of the book?" required><br>
+      <input type="number" id="number" name="number" min="1" placeholder="How many pages are in the book?" required><br>
+      <label>
+        <input type="checkbox" id="book-status" name="book-status" value="read">I have already read this book <i class="fad fa-eye"></i>
+      </label><br>
+      <button>ADD A NEW BOOK</button><br>
+    </form>
+    <button>DELETE ALL BOOKS</button>
+    <footer>
+      <p> ☽ Crafted by
+        <a href="https://github.com/mooniiDev" target="_blank">mooniiDev</a> |
+        <a href="https://github.com/mooniiDev/library" target="_blank">Source</a> ☾
+      </p>
+    </footer>
+  </div>
 
-  <main id="booksCards">
+  <main id="library-content">
+    <div id="library-info">
+      <p>Books read: <span id="books-read">0</span></p> |
+      <p>Unread books: <span id="unread-books">0</span></p> |
+      <p>Total books: <span id="total-books">0</span></p>
+    </div>
 
+    <table id="books-list">
+      <thead>
+        <tr>
+          <td>Author</td>
+          <td>Title</td>
+          <td>Pages</td>
+          <td>Status</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Yuval Noah Harari</td>
+          <td>Sapiens: A Brief History of Humankind</td>
+          <td>464</td>
+          <td>Unread</td>
+          <td><i class="fad fa-trash-alt"></i></td>
+        </tr>
+      </tbody>
+      </table>
   </main>
-
-  <footer>
-    <p> ☽ Crafted by
-      <a href="https://github.com/mooniiDev" target="_blank">mooniiDev</a> |
-      <a href="https://github.com/mooniiDev/library" target="_blank">Source</a> ☾
-    </p>
-  </footer>
 
   <script type="text/javascript" src="scripts.js"></script>
 </body>
