@@ -8,11 +8,12 @@
   <link type="text/css" rel="stylesheet" href="css/styles.css">
   <link href="css/fontawesome.min.css" rel="stylesheet">
   <link href="css/duotone.min.css" rel="stylesheet">
+  <link href="css/solid.min.css" rel="stylesheet">
   <title>📚 Library</title>
 </head>
 
 <body id="content">
-  <div id="side-menu">
+  <div id="side-form">
     <header>
       <h1><i class="fad fa-books"></i> Library</i></h1>
     </header>
@@ -21,11 +22,10 @@
       <input type="text" id="title" name="title" placeholder="What is the title of the book?" required><br>
       <input type="number" id="number" name="number" min="1" placeholder="How many pages are in the book?" required><br>
       <label>
-        <input type="checkbox" id="book-status" name="book-status" value="read">I have already read this book <i class="fad fa-eye"></i>
+        <input type="checkbox" id="book-status" name="book-status" value="read">I have already read this book!
       </label><br>
-      <button>ADD A NEW BOOK</button><br>
+      <button id="add-book">ADD A NEW BOOK</button><br>
     </form>
-    <button>DELETE ALL BOOKS</button>
     <footer>
       <p> ☽ Crafted by
         <a href="https://github.com/mooniiDev" target="_blank">mooniiDev</a> |
@@ -36,28 +36,35 @@
 
   <main id="library-content">
     <div id="library-info">
-      <p>Books read: <span id="books-read">0</span></p> |
-      <p>Unread books: <span id="unread-books">0</span></p> |
-      <p>Total books: <span id="total-books">0</span></p>
+      <p>BOOKS READ: <span id="books-read">0</span></p>
+      <p>UNREAD BOOKS: <span id="unread-books">0</span></p>
+      <p>TOTAL BOOKS: <span id="total-books">0</span></p>
     </div>
 
     <table id="books-list">
-      <thead>
+      <thead id="book-requirements">
         <tr>
-          <td>Author</td>
-          <td>Title</td>
-          <td>Pages</td>
-          <td>Status</td>
+          <td>AUTHOR</td>
+          <td>TITLE</td>
+          <td>PAGES</td>
+          <td>STATUS</td>
           <td></td>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr class="book-info">
+          <td> Andrzej Sapkowski</td>
+          <td>The Lady of the Lake</td>
+          <td>544</td>
+          <td><button><i class="fas fa-check"></i></button></td>
+          <td><button><i class="fas fa-trash-alt"></i></button></td>
+        </tr>
+        <tr class="book-info">
           <td>Yuval Noah Harari</td>
           <td>Sapiens: A Brief History of Humankind</td>
           <td>464</td>
-          <td>Unread</td>
-          <td><i class="fad fa-trash-alt"></i></td>
+          <td><button><i class="fas fa-times"></i></button></td>
+          <td><button><i class="fas fa-trash-alt"></i></button></td>
         </tr>
       </tbody>
       </table>
