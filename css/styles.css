@@ -1,12 +1,12 @@
 /* FONT FOR BODY TEXT*/
 @font-face {
   font-family: "Montserrat-Regular";
-  src: url("/home/moonii/Learn/Projects/The Odin Project/library/fonts/Montserrat-Regular.ttf");
+  src: url("../fonts/Montserrat-Regular.ttf");
 }
 /* FONT FOR H1 TEXT */
 @font-face {
   font-family: "MarcellusSC-Regular";
-  src: url("/home/moonii/Learn/Projects/The Odin Project/library/fonts/MarcellusSC-Regular.ttf");
+  src: url("../fonts/MarcellusSC-Regular.ttf");
 }
 
 #content {
