@@ -3,49 +3,152 @@
   font-family: "Montserrat-Regular";
   src: url("../fonts/Montserrat-Regular.ttf");
 }
-/* FONT FOR H1 TEXT */
+/* FONT FOR H1 (LOGO) TEXT */
 @font-face {
   font-family: "MarcellusSC-Regular";
   src: url("../fonts/MarcellusSC-Regular.ttf");
 }
-
 #content {
   display: flex;
   height: 100vh;
   font-family: "Montserrat-Regular", Arial, Helvetica, sans-serif;
+  color: #1F3E59;
 }
 
 /* SIDE FORM STYLE */
 #side-form {
   display: flex;
   flex-direction: column;
+  width: 360px;
   padding: 30px;
-  background-color: rgb(212, 212, 212);
+  background-color: #E9C1AF;
 }
-h1 {
+
+/* COLOR FOR LIBRARY LOGO */
+.theme-books {
+  --fa-secondary-color: #F7F1F0;
+  --fa-secondary-opacity: 1.0;
+}
+#logo {
   margin: 0 0 40px 0;
   font-family: "MarcellusSC-Regular", "Times New Roman", Georgia, Serif;
   font-size: 55px;
+  color: #1F3E59;
   text-align: center;
 }
-input {
-  width: 315px;
+
+#name,
+#title,
+#number {
+  width: 100%;
   margin-bottom: 15px;
+  padding: 15px 0 5px 0;
+  background-color: #E9C1AF;
+  border: none;
+  border-bottom: 2px dotted #1F3E59;
+  color: #1F3E59;
 }
-#book-status {
-  width: 15px;
-  margin-right: 5px;
+#name:focus,
+#title:focus,
+#number:focus {
+  outline: none;
 }
-/* BUTTON STYLE */
+
+/* STYLE FOR FLOATING INPUT PLACEHOLDER */
+div.input-block {
+  position: relative;
+}
+div.input-block span.placeholder {
+  position: absolute;
+  margin: 17px 0;
+  left: 0px;
+  transition: all 0.2s;
+  transform-origin: 0% 0%;
+  pointer-events: none;
+}
+div.input-block input:valid + span.placeholder,
+div.input-block input:focus + span.placeholder {
+  transform: scale(0.8) translateY(-30px);
+}
+div.input-block input:focus {
+  border-bottom: 2px dotted #F7F1F0 !important;
+}
+
+/* STYLE FOR NUMBER INPUT */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* STYLE FOR CHECKBOX INPUT */
+.checkbox {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 5px;
+  margin: 20px 0;
+}
+.checkbox-input input {
+  opacity: 0;
+  width: 1em;
+  height: 1em;
+}
+.checkbox-control {
+  display: inline-grid;
+  align-self: center;
+  width: 1em;
+  height: 1em;
+  border: 1px solid;
+  border-radius: 2px;
+}
+.checkbox-input {
+  display: grid;
+  grid-template-areas: "checkbox";
+}
+.checkbox-input > * {
+  grid-area: checkbox;
+}
+.checkbox-control svg {
+  opacity: 0;
+}
+.checkbox-input input:checked
+ + .checkbox-control svg {
+  opacity: 1;
+  background-color: #1F3E59;
+  color: #F7F1F0;
+}
+
+/* STYLE FOR 'ADD BOOK' BUTTON  */
 #add-book {
-  width: 210px;
+  width: 200px;
   height: 50px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  border: 1px solid #1F3E59;
+  border-radius: 2px;
+  background-color: #1F3E59;
+  color: #F7F1F0;
+  transition: 0.5s;
 }
-footer {
+#add-book:hover {
+  cursor: pointer;
+  background-color: #1a3246;
+  transition: 0.5s;
+}
+
+#footer {
   position: absolute;
   align-self: center;
   bottom: 30px;
+}
+#footer a {
+  text-decoration: none;
+  color: #1F3E59;
+  font-weight: 900;
 }
 
 /* BOOKS LIST STYLE */
@@ -53,9 +156,9 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 360px);
   padding: 30px;
-  background-color: rgb(238, 238, 238);
+  background-color: #F7F1F0;
 }
 #library-info {
   width: 50%;
@@ -67,13 +170,13 @@ footer {
 }
 #books-list {
   width: 70%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 2px dotted #1F3E59;
+  border-bottom: 2px dotted #1F3E59;
   border-collapse: collapse;
 }
 td {
   padding: 20px;
 }
 .book-info {
-  border-top: 1px solid black;
+  border-top: 2px dotted #1F3E59;
 }

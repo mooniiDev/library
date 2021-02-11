@@ -15,20 +15,42 @@
 <body id="content">
   <div id="side-form">
     <header>
-      <h1><i class="fad fa-books"></i> Library</i></h1>
+      <h1 id="logo"><i class="fad fa-books theme-books"></i> Library</i></h1>
     </header>
     <form>
-      <input type="text" id="name" name="name" placeholder="Who is the author of the book?" required><br>
-      <input type="text" id="title" name="title" placeholder="What is the title of the book?" required><br>
-      <input type="number" id="number" name="number" min="1" placeholder="How many pages are in the book?" required><br>
-      <label>
-        <input type="checkbox" id="book-status" name="book-status" value="read">I have already read this book!
-      </label><br>
-      <button id="add-book">ADD A NEW BOOK</button><br>
+      <div class="input-block">
+        <input type="text" name="name" id="name" required>
+        <span class="placeholder">
+          Who is the author of the book?
+        </span>
+      </div>
+      <div class="input-block">
+        <input type="text" name="title"  id="title" required>
+        <span class="placeholder">
+          What is the title of the book?
+        </span>
+      </div>
+      <div class="input-block">
+        <input type="number" id="number" name="number" min="1" required>
+        <span class="placeholder">
+          How many pages are in the book?
+        </span>
+      </div>
+      <label class="checkbox">
+        <span class="checkbox-input">
+          <input type="checkbox" name="checkbox">
+          <span class="checkbox-control">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+              <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59'></svg>
+          </span>
+        </span>
+        <span class="checkbox-label">I have already read this book!</span>
+      </label>
+      <input type="submit" value="ADD A NEW BOOK" id="add-book">
     </form>
-    <footer>
+    <footer id="footer">
       <p> ☽ Crafted by
-        <a href="https://github.com/mooniiDev" target="_blank">mooniiDev</a> |
+        <a href="https://github.com/mooniiDev" target="_blank" >mooniiDev</a> |
         <a href="https://github.com/mooniiDev/library" target="_blank">Source</a> ☾
       </p>
     </footer>
