@@ -136,7 +136,7 @@ input[type=number] {
 }
 #add-book:hover {
   cursor: pointer;
-  background-color: #1a3246;
+  background-color: #1A3246;
   transition: 0.5s;
 }
 
@@ -144,6 +144,21 @@ input[type=number] {
   position: absolute;
   align-self: center;
   bottom: 30px;
+}
+/* STYLE FOR TOOLTIP */
+.project-info .tooltip-text {
+  visibility: hidden;
+  padding: 10px;
+  position: absolute;
+  background-color: #1F3E59;
+  text-align: center;
+  color: #F7F1F0;
+  border-radius: 2px;
+  z-index: 1;
+  bottom: 100%;
+}
+.project-info:hover .tooltip-text {
+  visibility: visible;
 }
 #footer a {
   text-decoration: none;
@@ -161,22 +176,42 @@ input[type=number] {
   background-color: #F7F1F0;
 }
 #library-info {
-  width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
 }
 #library-info p {
-  display: inline-block;
-  padding: 0 20px 0 20px;
+  font-size: 20px;
+  font-weight: 900;
 }
 #books-list {
   width: 70%;
-  border-top: 2px dotted #1F3E59;
-  border-bottom: 2px dotted #1F3E59;
   border-collapse: collapse;
 }
-td {
+#books-list td {
   padding: 20px;
 }
+#book-requirements {
+  background-color: #1F3E59;
+  color: #F7F1F0;
+  font-weight: 900;
+}
 .book-info {
-  border-top: 2px dotted #1F3E59;
+  border-bottom: 2px dotted #1F3E59;
+}
+.book-info button {
+  border: none;
+  font-size: 20px;
+}
+.book-info button:hover {
+  cursor: pointer;
+}
+.fa-check {
+  color: #478647;
+}
+.fa-times {
+  color: #D05050;
+}
+.fa-trash-alt {
+  color: #1F3E59;
 }
