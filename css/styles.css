@@ -51,7 +51,7 @@
 #title,
 #number {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   padding: 15px 0 5px 0;
   background-color: var(--cream);
   border: none;
@@ -223,9 +223,7 @@ input[type=number] {
 .fa-check {
   color: var(--green);
 }
-.fa-times {
-  color: var(--red);
-}
+.fa-times,
 .fa-trash-alt {
   color: var(--red);
 }
