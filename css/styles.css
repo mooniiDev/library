@@ -8,11 +8,21 @@
   font-family: "MarcellusSC-Regular";
   src: url("../fonts/MarcellusSC-Regular.ttf");
 }
+/* COLOR PALETTE */
+:root {
+  --white: #F7F1F0;
+  --cream: #E9C1AF;
+  --blue: #1F3E59;
+  --dark-blue: #1A3246;
+  --green: #478647;
+  --red: #D05050;
+}
+
 #content {
   display: flex;
   height: 100vh;
   font-family: "Montserrat-Regular", Arial, Helvetica, sans-serif;
-  color: #1F3E59;
+  color: var(--blue);
 }
 
 /* SIDE FORM STYLE */
@@ -21,19 +31,19 @@
   flex-direction: column;
   width: 360px;
   padding: 30px;
-  background-color: #E9C1AF;
+  background-color: var(--cream);
 }
 
 /* COLOR FOR LIBRARY LOGO */
 .theme-books {
-  --fa-secondary-color: #F7F1F0;
+  --fa-secondary-color: var(--white);
   --fa-secondary-opacity: 1.0;
 }
 #logo {
   margin: 0 0 40px 0;
   font-family: "MarcellusSC-Regular", "Times New Roman", Georgia, Serif;
   font-size: 55px;
-  color: #1F3E59;
+  color: var(--blue);
   text-align: center;
 }
 
@@ -43,10 +53,10 @@
   width: 100%;
   margin-bottom: 15px;
   padding: 15px 0 5px 0;
-  background-color: #E9C1AF;
+  background-color: var(--cream);
   border: none;
-  border-bottom: 2px dotted #1F3E59;
-  color: #1F3E59;
+  border-bottom: 2px dotted var(--blue);;
+  color: var(--blue);
 }
 #name:focus,
 #title:focus,
@@ -71,7 +81,7 @@ div.input-block input:focus + span.placeholder {
   transform: scale(0.8) translateY(-30px);
 }
 div.input-block input:focus {
-  border-bottom: 2px dotted #F7F1F0 !important;
+  border-bottom: 2px dotted var(--white) !important;
 }
 
 /* STYLE FOR NUMBER INPUT */
@@ -119,8 +129,8 @@ input[type=number] {
 .checkbox-input input:checked
  + .checkbox-control svg {
   opacity: 1;
-  background-color: #1F3E59;
-  color: #F7F1F0;
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 /* STYLE FOR 'ADD BOOK' BUTTON  */
@@ -128,31 +138,33 @@ input[type=number] {
   width: 200px;
   height: 50px;
   margin-top: 15px;
-  border: 1px solid #1F3E59;
+  border: 1px solid var(--blue);
   border-radius: 2px;
-  background-color: #1F3E59;
-  color: #F7F1F0;
+  background-color: var(--blue);
+  color: var(--white);
   transition: 0.5s;
 }
 #add-book:hover {
   cursor: pointer;
-  background-color: #1A3246;
+  background-color: var(--dark-blue);
   transition: 0.5s;
 }
 
 #footer {
   position: absolute;
-  align-self: center;
   bottom: 30px;
+}
+#crafted-by {
+  margin-bottom: 0;
 }
 /* STYLE FOR TOOLTIP */
 .project-info .tooltip-text {
   visibility: hidden;
   padding: 10px;
   position: absolute;
-  background-color: #1F3E59;
+  background-color: var(--blue);
   text-align: center;
-  color: #F7F1F0;
+  color: var(--white);
   border-radius: 2px;
   z-index: 1;
   bottom: 100%;
@@ -173,7 +185,7 @@ input[type=number] {
   flex-direction: column;
   width: calc(100% - 360px);
   padding: 30px;
-  background-color: #F7F1F0;
+  background-color: var(--white);
 }
 #library-info {
   display: flex;
@@ -189,29 +201,31 @@ input[type=number] {
   border-collapse: collapse;
 }
 #books-list td {
-  padding: 20px;
+  padding: 25px;
 }
 #book-requirements {
-  background-color: #1F3E59;
-  color: #F7F1F0;
+  background-color: var(--blue);
+  color: var(--white);
   font-weight: 900;
 }
 .book-info {
-  border-bottom: 2px dotted #1F3E59;
+  border-bottom: 2px dotted var(--blue);
 }
 .book-info button {
   border: none;
   font-size: 20px;
+  background-color: transparent;
+  padding: 0;
 }
 .book-info button:hover {
   cursor: pointer;
 }
 .fa-check {
-  color: #478647;
+  color: var(--green);
 }
 .fa-times {
-  color: #D05050;
+  color: var(--red);
 }
 .fa-trash-alt {
-  color: #1F3E59;
+  color: var(--red);
 }

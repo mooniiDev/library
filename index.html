@@ -21,13 +21,13 @@
       <div class="input-block">
         <input type="text" name="name" id="name" required>
         <span class="placeholder">
-          Who is the author of the book?
+          What is the title of the book?
         </span>
       </div>
       <div class="input-block">
         <input type="text" name="title"  id="title" required>
         <span class="placeholder">
-          What is the title of the book?
+          Who is the author of the book?
         </span>
       </div>
       <div class="input-block">
@@ -58,7 +58,7 @@
         </span>
          Hover to read about this project
       </p>
-      <p> ☽ Crafted by
+      <p id="crafted-by"> ☽ Crafted by
         <a href="https://github.com/mooniiDev" target="_blank" >mooniiDev</a> |
         <a href="https://github.com/mooniiDev/library" target="_blank">Source</a> ☾
       </p>
@@ -67,16 +67,16 @@
 
   <main id="library-content">
     <div id="library-info">
-      <p>BOOKS READ: <span id="books-read">0</span></p>
-      <p>BOOKS UNREAD: <span id="unread-books">0</span></p>
-      <p>TOTAL BOOKS: <span id="total-books">0</span></p>
+      <p>BOOKS READ: <span>1</span></p>
+      <p>BOOKS UNREAD: <span>1</span></p>
+      <p>TOTAL BOOKS: <span>2</span></p>
     </div>
 
     <table id="books-list">
       <thead id="book-requirements">
         <tr>
-          <td>AUTHOR</td>
           <td>TITLE</td>
+          <td>AUTHOR</td>
           <td>PAGES</td>
           <td>STATUS</td>
           <td></td>
@@ -84,17 +84,17 @@
       </thead>
       <tbody>
         <tr class="book-info">
-          <td> Andrzej Sapkowski</td>
-          <td>The Lady of the Lake</td>
-          <td>544</td>
-          <td><button><i class="fas fa-check"></i></button></td>
+          <td>Sapiens: A Brief History of Humankind</td>
+          <td>Yuval Noah Harari</td>
+          <td>464</td>
+          <td><button><i class="fas fa-times"></i></button></td>
           <td><button><i class="fas fa-trash-alt"></i></button></td>
         </tr>
         <tr class="book-info">
-          <td>Yuval Noah Harari</td>
-          <td>Sapiens: A Brief History of Humankind</td>
-          <td>464</td>
-          <td><button><i class="fas fa-times"></i></button></td>
+          <td>The Lady of the Lake</td>
+          <td> Andrzej Sapkowski</td>
+          <td>544</td>
+          <td><button><i class="fas fa-check"></i></button></td>
           <td><button><i class="fas fa-trash-alt"></i></button></td>
         </tr>
       </tbody>
