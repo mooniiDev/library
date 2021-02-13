@@ -20,7 +20,7 @@
 
 #content {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Montserrat-Regular", Arial, Helvetica, sans-serif;
   color: var(--blue);
 }
@@ -151,8 +151,9 @@ input[type=number] {
 }
 
 #footer {
-  position: absolute;
-  bottom: 30px;
+  position: fixed;
+  bottom: 0;
+  padding: 0 0 30px 0;
 }
 #crafted-by {
   margin-bottom: 0;

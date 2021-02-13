@@ -15,6 +15,25 @@ function addBookToLibrary(title, author, pages, status) {
 addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', 'read');
 addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', 'unread');
 
+function showLibraryInfo() {
+  let readCounter = 0;
+  let unreadCounter = 0;
+  for (let i = 0; i < myLibrary.length; i += 1) {
+    if (myLibrary[i].status === 'read') {
+      readCounter += 1;
+      const booksRead = document.querySelector('#books-read');
+      booksRead.textContent = readCounter;
+    } else if (myLibrary[i].status === 'unread') {
+      unreadCounter += 1;
+      const booksUnread = document.querySelector('#books-unread');
+      booksUnread.textContent = unreadCounter;
+    }
+  }
+  const totalBooks = document.querySelector('#total-books');
+  totalBooks.textContent = myLibrary.length;
+}
+showLibraryInfo();
+
 function showBooksInLibrary() {
   for (let i = 0; i < myLibrary.length; i += 1) {
     const bookList = document.querySelector('#table-body');
