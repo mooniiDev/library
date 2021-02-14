@@ -15,7 +15,9 @@
   --blue: #1F3E59;
   --dark-blue: #1A3246;
   --green: #478647;
+  --dark-green: #337433;
   --red: #D05050;
+  --dark-red: #BE3E3E;
 }
 
 #content {
@@ -146,6 +148,7 @@ input[type=number] {
 }
 #add-book:hover {
   cursor: pointer;
+  border: 1px solid var(--dark-blue);
   background-color: var(--dark-blue);
   transition: 0.5s;
 }
@@ -190,13 +193,30 @@ input[type=number] {
 }
 #library-info {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 70%;
+  margin-bottom: 30px;
+  padding: 0 25px;
+  font-size: 18px;
 }
-#library-info p {
-  font-size: 20px;
+#library-info p,
+#delete-all-btn {
   font-weight: 900;
 }
+#delete-all-btn {
+  width: 150px;
+  border: 1px solid var(--red);
+  border-radius: 2px;
+  background-color: var(--red);
+  color: var(--white);
+  transition: 0.5s;
+}
+#delete-all-btn:hover {
+  border: 1px solid var(--dark-red);
+  background-color: var(--dark-red);
+  cursor: pointer;
+}
+
 #books-list {
   width: 70%;
   border-collapse: collapse;
@@ -223,8 +243,17 @@ input[type=number] {
 }
 .fa-check {
   color: var(--green);
+  transition: 0.5s;
+}
+.fa-check:hover {
+  color: var(--dark-green);
 }
 .fa-times,
 .fa-trash-alt {
   color: var(--red);
+  transition: 0.5s;
+}
+.fa-times:hover,
+.fa-trash-alt:hover {
+  color: var(--dark-red);
 }
