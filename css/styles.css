@@ -232,13 +232,10 @@ input[type=number] {
 .book-info {
   border-bottom: 2px dotted var(--blue);
 }
-.book-info button {
-  border: none;
+.book-info i {
   font-size: 20px;
-  background-color: transparent;
-  padding: 0;
 }
-.book-info button:hover {
+.book-info i:hover {
   cursor: pointer;
 }
 .fa-check {

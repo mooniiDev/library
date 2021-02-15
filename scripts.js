@@ -1,3 +1,4 @@
+const bookList = document.querySelector('#table-body');
 let myLibrary = [];
 
 function Books(title, author, pages, status) {
@@ -7,94 +8,92 @@ function Books(title, author, pages, status) {
   this.status = status;
 }
 
-function showBooksInLibrary() {
-  const bookList = document.querySelector('#table-body');
-  bookList.textContent = '';
-  for (let i = 0; i < myLibrary.length; i += 1) {
-    const bookRow = document.createElement('tr');
-    bookRow.classList.add('book-info');
-    bookList.appendChild(bookRow);
-
-    const bookTitle = document.createElement('td');
-    bookTitle.textContent = myLibrary[i].title;
-    bookTitle.classList.add('book-title');
-    bookRow.appendChild(bookTitle);
-
-    const bookAuthor = document.createElement('td');
-    bookAuthor.textContent = myLibrary[i].author;
-    bookAuthor.classList.add('book-author');
-    bookRow.appendChild(bookAuthor);
-
-    const bookPages = document.createElement('td');
-    bookPages.textContent = myLibrary[i].pages;
-    bookPages.classList.add('book-pages');
-    bookRow.appendChild(bookPages);
-
-    const bookStatus = document.createElement('td');
-    const statusButton = document.createElement('button');
-    const statusSymbol = document.createElement('i');
-    if (myLibrary[i].status === 'read') {
-      statusSymbol.classList.add('fas', 'fa-check');
-    } else if (myLibrary[i].status === 'unread') {
-      statusSymbol.classList.add('fas', 'fa-times');
-    }
-    bookStatus.classList.add('book-status');
-    statusButton.appendChild(statusSymbol);
-    bookStatus.appendChild(statusButton);
-    bookRow.appendChild(bookStatus);
-
-    const bookDelete = document.createElement('td');
-    const deleteButton = document.createElement('button');
-    const deleteSymbol = document.createElement('i');
-    deleteSymbol.classList.add('fas', 'fa-trash-alt');
-    deleteButton.appendChild(deleteSymbol);
-    bookDelete.classList.add('book-delete');
-    bookDelete.appendChild(deleteButton);
-    bookRow.appendChild(bookDelete);
-  }
-}
-
 function showLibraryInfo() {
   const booksRead = document.querySelector('#books-read');
   const booksUnread = document.querySelector('#books-unread');
   const totalBooks = document.querySelector('#total-books');
-  let readCounter = 0;
   let unreadCounter = 0;
+  let readCounter = 0;
   if (myLibrary.length === 0) {
-    booksRead.textContent = '0';
     booksUnread.textContent = '0';
+    booksRead.textContent = '0';
   } else {
     for (let i = 0; i < myLibrary.length; i += 1) {
-      if (myLibrary[i].status === 'read') {
-        readCounter += 1;
-        booksRead.textContent = readCounter;
-      } else if (myLibrary[i].status === 'unread') {
+      if (myLibrary.length === 1 && myLibrary[i].status === 'unread') {
+        booksRead.textContent = '0';
+      } else {
+        booksUnread.textContent = '0';
+      }
+      if (myLibrary[i].status === 'unread') {
         unreadCounter += 1;
         booksUnread.textContent = unreadCounter;
+      } else {
+        readCounter += 1;
+        booksRead.textContent = readCounter;
       }
     }
   }
   totalBooks.textContent = myLibrary.length;
 }
 
+function showBooksInLibrary() {
+  showLibraryInfo();
+  bookList.textContent = '';
+  for (let i = 0; i < myLibrary.length; i += 1) {
+    const bookRow = document.createElement('tr');
+    bookRow.classList.add('book-info');
+    bookList.appendChild(bookRow);
+    // BOOK TITLE
+    const bookTitle = document.createElement('td');
+    bookTitle.textContent = myLibrary[i].title;
+    bookRow.appendChild(bookTitle);
+    // BOOK AUTHOR
+    const bookAuthor = document.createElement('td');
+    bookAuthor.textContent = myLibrary[i].author;
+    bookRow.appendChild(bookAuthor);
+    // BOOK PAGES
+    const bookPages = document.createElement('td');
+    bookPages.textContent = myLibrary[i].pages;
+    bookRow.appendChild(bookPages);
+    // BOOK STATUS BUTTON
+    const bookStatus = document.createElement('td');
+    const statusSymbol = document.createElement('i');
+    if (myLibrary[i].status === 'unread') {
+      statusSymbol.classList.add('fas', 'fa-times');
+    } else {
+      statusSymbol.classList.add('fas', 'fa-check');
+    }
+    bookStatus.appendChild(statusSymbol);
+    bookRow.appendChild(bookStatus);
+    // BOOK REMOVAL BUTTON
+    const bookDelete = document.createElement('td');
+    const deleteSymbol = document.createElement('i');
+    deleteSymbol.classList.add('fas', 'fa-trash-alt');
+    bookDelete.appendChild(deleteSymbol);
+    bookRow.appendChild(bookDelete);
+  }
+}
+
 function addBookToLibrary(title, author, pages, status) {
   const book = new Books(title, author, pages, status);
   myLibrary.push(book);
-  showLibraryInfo();
   showBooksInLibrary();
 }
 
-function deleteAllBooks() {
-  const deleteAllBtn = document.querySelector('#delete-all-btn');
-  deleteAllBtn.addEventListener('click', () => {
-    myLibrary = [];
-    showBooksInLibrary();
-    showLibraryInfo();
+function deleteBooks() {
+  document.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target.id === 'delete-all-btn') {
+      myLibrary = [];
+      showBooksInLibrary();
+    } else if (target.classList.contains('fa-trash-alt')) {
+      const tr = target.parentNode.parentNode.rowIndex - 1;
+      myLibrary.splice(tr, 1);
+      showBooksInLibrary();
+    }
   });
 }
 
 addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', 'read');
 addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', 'unread');
-showLibraryInfo();
-showBooksInLibrary();
-deleteAllBooks();
+deleteBooks();
