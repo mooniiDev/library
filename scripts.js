@@ -14,23 +14,15 @@ function showLibraryInfo() {
   const totalBooks = document.querySelector('#total-books');
   let unreadCounter = 0;
   let readCounter = 0;
-  if (myLibrary.length === 0) {
-    booksUnread.textContent = '0';
-    booksRead.textContent = '0';
-  } else {
-    for (let i = 0; i < myLibrary.length; i += 1) {
-      if (myLibrary.length === 1 && myLibrary[i].status === 'unread') {
-        booksRead.textContent = '0';
-      } else {
-        booksUnread.textContent = '0';
-      }
-      if (myLibrary[i].status === 'unread') {
-        unreadCounter += 1;
-        booksUnread.textContent = unreadCounter;
-      } else {
-        readCounter += 1;
-        booksRead.textContent = readCounter;
-      }
+  booksUnread.textContent = 0;
+  booksRead.textContent = 0;
+  for (let i = 0; i < myLibrary.length; i += 1) {
+    if (myLibrary[i].status === false) {
+      unreadCounter += 1;
+      booksUnread.textContent = unreadCounter;
+    } else if (myLibrary[i].status === true) {
+      readCounter += 1;
+      booksRead.textContent = readCounter;
     }
   }
   totalBooks.textContent = myLibrary.length;
@@ -58,7 +50,7 @@ function showBooksInLibrary() {
     // BOOK STATUS BUTTON
     const bookStatus = document.createElement('td');
     const statusSymbol = document.createElement('i');
-    if (myLibrary[i].status === 'unread') {
+    if (myLibrary[i].status === false) {
       statusSymbol.classList.add('fas', 'fa-times');
     } else {
       statusSymbol.classList.add('fas', 'fa-check');
@@ -94,6 +86,7 @@ function deleteBooks() {
   });
 }
 
-addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', 'read');
-addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', 'unread');
+showLibraryInfo();
+addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', true);
+addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', false);
 deleteBooks();
