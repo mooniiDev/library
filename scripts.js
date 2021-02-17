@@ -1,4 +1,3 @@
-const bookList = document.querySelector('#table-body');
 let myLibrary = [];
 
 function Books(title, author, pages, status) {
@@ -12,17 +11,17 @@ function showLibraryInfo() {
   const booksRead = document.querySelector('#books-read');
   const booksUnread = document.querySelector('#books-unread');
   const totalBooks = document.querySelector('#total-books');
-  let unreadCounter = 0;
   let readCounter = 0;
-  booksUnread.textContent = 0;
+  let unreadCounter = 0;
   booksRead.textContent = 0;
+  booksUnread.textContent = 0;
   for (let i = 0; i < myLibrary.length; i += 1) {
-    if (myLibrary[i].status === false) {
-      unreadCounter += 1;
-      booksUnread.textContent = unreadCounter;
-    } else if (myLibrary[i].status === true) {
+    if (myLibrary[i].status === true) {
       readCounter += 1;
       booksRead.textContent = readCounter;
+    } else if (myLibrary[i].status === false) {
+      unreadCounter += 1;
+      booksUnread.textContent = unreadCounter;
     }
   }
   totalBooks.textContent = myLibrary.length;
@@ -30,6 +29,7 @@ function showLibraryInfo() {
 
 function showBooksInLibrary() {
   showLibraryInfo();
+  const bookList = document.querySelector('#table-body');
   bookList.textContent = '';
   for (let i = 0; i < myLibrary.length; i += 1) {
     const bookRow = document.createElement('tr');
@@ -72,21 +72,28 @@ function addBookToLibrary(title, author, pages, status) {
   showBooksInLibrary();
 }
 
-function deleteBooks() {
+function listenClicks() {
   document.addEventListener('click', (event) => {
     const { target } = event;
+    const tr = target.parentNode.parentNode.rowIndex - 1;
     if (target.id === 'delete-all-btn') {
       myLibrary = [];
-      showBooksInLibrary();
     } else if (target.classList.contains('fa-trash-alt')) {
-      const tr = target.parentNode.parentNode.rowIndex - 1;
       myLibrary.splice(tr, 1);
-      showBooksInLibrary();
+    } else if (target.classList.contains('fa-check')) {
+      target.classList.remove('fa-check');
+      target.classList.add('fa-times');
+      myLibrary[tr].status = false;
+    } else if (target.classList.contains('fa-times')) {
+      target.classList.remove('fa-times');
+      target.classList.add('fa-check');
+      myLibrary[tr].status = true;
     }
+    showBooksInLibrary();
   });
 }
 
 showLibraryInfo();
 addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', true);
 addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', false);
-deleteBooks();
+listenClicks();

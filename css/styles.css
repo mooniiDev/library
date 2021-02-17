@@ -74,7 +74,7 @@ div.input-block span.placeholder {
   position: absolute;
   margin: 17px 0;
   left: 0px;
-  transition: all 0.2s;
+  transition: all 0.3s;
   transform-origin: 0% 0%;
   pointer-events: none;
 }
@@ -144,22 +144,19 @@ input[type=number] {
   border-radius: 2px;
   background-color: var(--blue);
   color: var(--white);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 #add-book:hover {
   cursor: pointer;
   border: 1px solid var(--dark-blue);
   background-color: var(--dark-blue);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 #footer {
   position: fixed;
   bottom: 0;
   padding: 0 0 30px 0;
-}
-#crafted-by {
-  margin-bottom: 0;
 }
 /* STYLE FOR TOOLTIP */
 .project-info .tooltip-text {
@@ -175,6 +172,9 @@ input[type=number] {
 }
 .project-info:hover .tooltip-text {
   visibility: visible;
+}
+#crafted-by {
+  margin-bottom: 0;
 }
 #footer a {
   text-decoration: none;
@@ -209,7 +209,7 @@ input[type=number] {
   border-radius: 2px;
   background-color: var(--red);
   color: var(--white);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 #delete-all-btn:hover {
   border: 1px solid var(--dark-red);
@@ -240,7 +240,7 @@ input[type=number] {
 }
 .fa-check {
   color: var(--green);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .fa-check:hover {
   color: var(--dark-green);
@@ -248,7 +248,7 @@ input[type=number] {
 .fa-times,
 .fa-trash-alt {
   color: var(--red);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .fa-times:hover,
 .fa-trash-alt:hover {
