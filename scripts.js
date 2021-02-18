@@ -72,12 +72,28 @@ function addBookToLibrary(title, author, pages, status) {
   showBooksInLibrary();
 }
 
+// MODAL FOR BOOKS REMOVAL
+function showModal() {
+  const modal = document.querySelector('#modal');
+  const closeModal = document.querySelectorAll('.close');
+  const deleteBooks = document.querySelector('.confirm-removal');
+  modal.style.display = 'block';
+  closeModal.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  });
+  deleteBooks.addEventListener('click', () => {
+    myLibrary = [];
+  });
+}
+
 function listenClicks() {
   document.addEventListener('click', (event) => {
     const { target } = event;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     if (target.id === 'delete-all-btn') {
-      myLibrary = [];
+      showModal();
     } else if (target.classList.contains('fa-trash-alt')) {
       myLibrary.splice(tr, 1);
     } else if (target.classList.contains('fa-check')) {

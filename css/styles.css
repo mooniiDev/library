@@ -1,9 +1,9 @@
-/* FONT FOR BODY TEXT*/
+/* BODY TEXT FONT */
 @font-face {
   font-family: "Montserrat-Regular";
   src: url("../fonts/Montserrat-Regular.ttf");
 }
-/* FONT FOR H1 (LOGO) TEXT */
+/* H1 (LOGO) TEXT FONT */
 @font-face {
   font-family: "MarcellusSC-Regular";
   src: url("../fonts/MarcellusSC-Regular.ttf");
@@ -36,7 +36,7 @@
   background-color: var(--cream);
 }
 
-/* COLOR FOR LIBRARY LOGO */
+/* LIBRARY LOGO COLOR */
 .theme-books {
   --fa-secondary-color: var(--white);
   --fa-secondary-opacity: 1.0;
@@ -66,7 +66,7 @@
   outline: none;
 }
 
-/* STYLE FOR FLOATING INPUT PLACEHOLDER */
+/* FLOATING INPUT PLACEHOLDER STYLE */
 div.input-block {
   position: relative;
 }
@@ -86,7 +86,7 @@ div.input-block input:focus {
   border-bottom: 2px dotted var(--white) !important;
 }
 
-/* STYLE FOR NUMBER INPUT */
+/* NUMBER INPUT STYLE */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -98,7 +98,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* STYLE FOR CHECKBOX INPUT */
+/* CHECKBOX INPUT STYLE */
 .checkbox {
   display: grid;
   grid-template-columns: min-content auto;
@@ -135,7 +135,7 @@ input[type=number] {
   color: var(--white);
 }
 
-/* STYLE FOR 'ADD BOOK' BUTTON  */
+/* 'ADD BOOK' BUTTON STYLE */
 #add-book {
   width: 200px;
   height: 50px;
@@ -148,7 +148,7 @@ input[type=number] {
 }
 #add-book:hover {
   cursor: pointer;
-  border: 1px solid var(--dark-blue);
+  border-color: var(--dark-blue);
   background-color: var(--dark-blue);
   transition: 0.3s;
 }
@@ -158,7 +158,7 @@ input[type=number] {
   bottom: 0;
   padding: 0 0 30px 0;
 }
-/* STYLE FOR TOOLTIP */
+/* TOOLTIP STYLE */
 .project-info .tooltip-text {
   visibility: hidden;
   padding: 10px;
@@ -211,10 +211,11 @@ input[type=number] {
   color: var(--white);
   transition: 0.3s;
 }
-#delete-all-btn:hover {
-  border: 1px solid var(--dark-red);
-  background-color: var(--dark-red);
+#delete-all-btn:hover,
+.confirm-removal:hover {
   cursor: pointer;
+  border-color: var(--dark-red);
+  background-color: var(--dark-red);
 }
 
 #books-list {
@@ -253,4 +254,71 @@ input[type=number] {
 .fa-times:hover,
 .fa-trash-alt:hover {
   color: var(--dark-red);
+}
+
+/* MODAL STYLE */
+#modal {
+  display: none;
+  position: fixed;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-card {
+  position: relative;
+  margin: auto;
+  width: 30%;
+  border: 2px solid var(--blue);
+  border-radius: 2px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--blue);
+  color: var(--white);
+}
+.modal-header h2 {
+  margin: 0;
+  padding: 20px;
+}
+.close-modal {
+  align-self: flex-start;
+  padding: 0 20px 0 0;
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 900;
+}
+.close-modal:hover,
+.cancel-removal:hover {
+  cursor: pointer;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--white);
+}
+.modal-content p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+.modal-options {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 20px;
+}
+.confirm-removal {
+  margin-left: 15px;
+  height: 40px;
+  background-color: var(--red);
+  color: var(--white);
+  border: 1px solid var(--red);
+  border-radius: 2px;
+  transition: 0.3s;
+  font-weight: 900;
 }
