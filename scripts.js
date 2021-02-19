@@ -72,6 +72,19 @@ function addBookToLibrary(title, author, pages, status) {
   showBooksInLibrary();
 }
 
+function getInputValue(event) {
+  event.preventDefault();
+  const titleInput = document.querySelector('#title');
+  const nameInput = document.querySelector('#name');
+  const numberInput = document.querySelector('#number');
+  const checkbox = document.querySelector('input[name="checkbox"]');
+  if (checkbox.checked) {
+    addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, true);
+  } else {
+    addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, false);
+  }
+}
+
 // MODAL FOR BOOKS REMOVAL
 function manipulateModal() {
   const modal = document.querySelector('#modal');
@@ -91,7 +104,9 @@ function listenClicks() {
   document.addEventListener('click', (event) => {
     const { target } = event;
     const tr = target.parentNode.parentNode.rowIndex - 1;
-    if (target.id === 'delete-all-btn') {
+    if (target.id === 'add-book') {
+      getInputValue(event);
+    } else if (target.id === 'delete-all-btn') {
       manipulateModal();
     } else if (target.classList.contains('fa-trash-alt')) {
       myLibrary.splice(tr, 1);
