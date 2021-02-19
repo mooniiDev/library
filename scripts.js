@@ -73,18 +73,17 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 // MODAL FOR BOOKS REMOVAL
-function showModal() {
+function manipulateModal() {
   const modal = document.querySelector('#modal');
-  const closeModal = document.querySelectorAll('.close');
-  const deleteBooks = document.querySelector('.confirm-removal');
   modal.style.display = 'block';
-  closeModal.forEach((btn) => {
-    btn.addEventListener('click', () => {
+  modal.addEventListener('click', (event) => {
+    const { target } = event;
+    if (target.classList.contains('close')) {
       modal.style.display = 'none';
-    });
-  });
-  deleteBooks.addEventListener('click', () => {
-    myLibrary = [];
+    } else if (target.classList.contains('confirm-removal')) {
+      myLibrary = [];
+      modal.style.display = 'none';
+    }
   });
 }
 
@@ -93,7 +92,7 @@ function listenClicks() {
     const { target } = event;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     if (target.id === 'delete-all-btn') {
-      showModal();
+      manipulateModal();
     } else if (target.classList.contains('fa-trash-alt')) {
       myLibrary.splice(tr, 1);
     } else if (target.classList.contains('fa-check')) {

@@ -20,6 +20,11 @@
   --dark-red: #BE3E3E;
 }
 
+input:focus,
+button:focus {
+  outline: none;
+}
+
 #content {
   display: flex;
   min-height: 100vh;
@@ -57,13 +62,8 @@
   padding: 15px 0 5px 0;
   background-color: var(--cream);
   border: none;
-  border-bottom: 2px dotted var(--blue);;
+  border-bottom: 2px dotted;
   color: var(--blue);
-}
-#name:focus,
-#title:focus,
-#number:focus {
-  outline: none;
 }
 
 /* FLOATING INPUT PLACEHOLDER STYLE */
@@ -182,7 +182,7 @@ input[type=number] {
   font-weight: 900;
 }
 
-/* BOOKS LIST STYLE */
+/* LIBRARY INFO STYLE */
 #library-content {
   display: flex;
   align-items: center;
@@ -199,10 +199,6 @@ input[type=number] {
   padding: 0 25px;
   font-size: 18px;
 }
-#library-info p,
-#delete-all-btn {
-  font-weight: 900;
-}
 #delete-all-btn {
   width: 150px;
   border: 1px solid var(--red);
@@ -218,6 +214,7 @@ input[type=number] {
   background-color: var(--dark-red);
 }
 
+/* TABLE STYLE */
 #books-list {
   width: 70%;
   border-collapse: collapse;
@@ -228,7 +225,6 @@ input[type=number] {
 #book-requirements {
   background-color: var(--blue);
   color: var(--white);
-  font-weight: 900;
 }
 .book-info {
   border-bottom: 2px dotted var(--blue);
@@ -236,7 +232,9 @@ input[type=number] {
 .book-info i {
   font-size: 20px;
 }
-.book-info i:hover {
+.book-info i:hover,
+.close-modal:hover,
+.cancel-removal:hover {
   cursor: pointer;
 }
 .fa-check {
@@ -273,6 +271,7 @@ input[type=number] {
   width: 30%;
   border: 2px solid var(--blue);
   border-radius: 2px;
+  box-shadow: rgb(46, 46, 46, 0.2) 0px 2px 8px 0px;
 }
 .modal-header {
   display: flex;
@@ -286,14 +285,10 @@ input[type=number] {
 }
 .close-modal {
   align-self: flex-start;
-  padding: 0 20px 0 0;
+  margin: 0 20px 0 0;
   color: var(--white);
   font-size: 30px;
   font-weight: 900;
-}
-.close-modal:hover,
-.cancel-removal:hover {
-  cursor: pointer;
 }
 .modal-content {
   display: flex;
@@ -301,24 +296,24 @@ input[type=number] {
   padding: 20px;
   background-color: var(--white);
 }
-.modal-content p {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 900;
-}
 .modal-options {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin-top: 20px;
 }
+.cancel-removal {
+  border: none;
+  background-color: transparent;
+  color: var(--blue);
+}
 .confirm-removal {
-  margin-left: 15px;
   height: 40px;
+  margin-left: 15px;
+  padding: 0 10px;
   background-color: var(--red);
   color: var(--white);
   border: 1px solid var(--red);
   border-radius: 2px;
   transition: 0.3s;
-  font-weight: 900;
 }
