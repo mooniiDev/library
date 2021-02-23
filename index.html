@@ -22,18 +22,27 @@
 
     <form>
       <div class="input-block">
-        <input type="text" name="title"  id="title">
+        <input id="title" class="required" type="text" name="title" required>
         <span class="placeholder">What is the title of the book?</span>
+        <div class="validation-block">
+          <p class="validation-text">Please fill out this field.</p>
+        </div>
       </div>
 
       <div class="input-block">
-        <input type="text" name="name" id="name">
+        <input id="name" class="required" type="text" name="name" required>
         <span class="placeholder">Who is the author of the book?</span>
+        <div class="validation-block">
+          <p class="validation-text">Please fill out this field.</p>
+        </div>
       </div>
 
       <div class="input-block">
-        <input type="number" id="number" name="number" min="1">
+        <input id="number" class="required" type="number" name="number" min="1" step=1 required>
         <span class="placeholder">How many pages are in the book?</span>
+        <div class="validation-block">
+          <p class="validation-text">Please enter a number.</p>
+        </div>
       </div>
 
       <label class="checkbox">

@@ -72,8 +72,7 @@ function addBookToLibrary(title, author, pages, status) {
   showBooksInLibrary();
 }
 
-function getInputValue(event) {
-  event.preventDefault();
+function getInputValue() {
   const titleInput = document.querySelector('#title');
   const nameInput = document.querySelector('#name');
   const numberInput = document.querySelector('#number');
@@ -82,6 +81,32 @@ function getInputValue(event) {
     addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, true);
   } else {
     addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, false);
+  }
+}
+
+function validateForm(event) {
+  event.preventDefault();
+  const inputs = document.querySelectorAll('.required');
+  const validationTexs = document.querySelectorAll('.validation-text');
+  const checkbox = document.querySelector('input[name="checkbox"]');
+  let counter = 0;
+  for (let i = 0; i < inputs.length; i += 1) {
+    if (inputs[i].value === '') {
+      validationTexs[i].style.display = 'block';
+    } else if (inputs[i].value !== '') {
+      validationTexs[i].style.display = 'none';
+      counter += 1;
+    }
+  }
+  if (counter === inputs.length) {
+    if (checkbox.checked) {
+      checkbox.checked = false;
+    }
+    getInputValue();
+    for (let i = 0; i < inputs.length; i += 1) {
+      inputs[i].value = '';
+      validationTexs[i].style.display = 'none';
+    }
   }
 }
 
@@ -105,7 +130,7 @@ function listenClicks() {
     const { target } = event;
     const tr = target.parentNode.parentNode.rowIndex - 1;
     if (target.id === 'add-book') {
-      getInputValue(event);
+      validateForm(event);
     } else if (target.id === 'delete-all-btn') {
       manipulateModal();
     } else if (target.classList.contains('fa-trash-alt')) {

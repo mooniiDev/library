@@ -58,7 +58,6 @@ button:focus {
 #title,
 #number {
   width: 100%;
-  margin-bottom: 25px;
   padding: 15px 0 5px 0;
   background-color: var(--cream);
   border: none;
@@ -67,10 +66,10 @@ button:focus {
 }
 
 /* FLOATING INPUT PLACEHOLDER STYLE */
-div.input-block {
+.input-block {
   position: relative;
 }
-div.input-block span.placeholder {
+.input-block span.placeholder {
   position: absolute;
   margin: 17px 0;
   left: 0px;
@@ -78,11 +77,11 @@ div.input-block span.placeholder {
   transform-origin: 0% 0%;
   pointer-events: none;
 }
-div.input-block input:valid + span.placeholder,
-div.input-block input:focus + span.placeholder {
+.input-block input:valid + span.placeholder,
+.input-block input:focus + span.placeholder {
   transform: scale(0.8) translateY(-30px);
 }
-div.input-block input:focus {
+.input-block input:focus {
   border-bottom: 2px dotted var(--white) !important;
 }
 
@@ -103,7 +102,6 @@ input[type=number] {
   display: grid;
   grid-template-columns: min-content auto;
   grid-gap: 5px;
-  margin: 20px 0;
 }
 .checkbox-input input {
   opacity: 0;
@@ -138,8 +136,8 @@ input[type=number] {
 /* 'ADD BOOK' BUTTON STYLE */
 #add-book {
   width: 200px;
-  height: 50px;
-  margin-top: 15px;
+  padding: 19px 0;
+  margin-top: 40px;
   border: 1px solid var(--blue);
   border-radius: 2px;
   background-color: var(--blue);
@@ -151,6 +149,16 @@ input[type=number] {
   border-color: var(--dark-blue);
   background-color: var(--dark-blue);
   transition: 0.3s;
+}
+
+.validation-block {
+  height: 40px;
+}
+.validation-text {
+  display: none;
+  margin: 0;
+  font-size: 13px;
+  color: var(--red);
 }
 
 #footer {
@@ -198,6 +206,9 @@ input[type=number] {
   margin-bottom: 30px;
   padding: 0 25px;
   font-size: 18px;
+}
+#library-info p {
+  width: 180px;
 }
 #delete-all-btn {
   width: 150px;
