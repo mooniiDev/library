@@ -85,18 +85,6 @@ button:focus {
   border-bottom: 2px dotted var(--white) !important;
 }
 
-/* NUMBER INPUT STYLE */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 /* CHECKBOX INPUT STYLE */
 .checkbox {
   display: grid;
