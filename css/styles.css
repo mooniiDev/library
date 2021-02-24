@@ -72,7 +72,7 @@ button:focus {
 .input-block span.placeholder {
   position: absolute;
   margin: 17px 0;
-  left: 0px;
+  left: 0;
   transition: all 0.3s;
   transform-origin: 0% 0%;
   pointer-events: none;
@@ -206,9 +206,6 @@ input[type=number] {
   margin-bottom: 30px;
   padding: 0 25px;
   font-size: 18px;
-}
-#library-info p {
-  width: 180px;
 }
 #delete-all-btn {
   width: 150px;

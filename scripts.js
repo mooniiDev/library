@@ -7,6 +7,14 @@ function Books(title, author, pages, status) {
   this.status = status;
 }
 
+// GET BOOKS FROM LOCAL STORAGE
+if (localStorage.getItem('books') === null) {
+  myLibrary = [];
+} else {
+  const booksFromStorage = JSON.parse(localStorage.getItem('books'));
+  myLibrary = booksFromStorage;
+}
+
 function showLibraryInfo() {
   const booksRead = document.querySelector('#books-read');
   const booksUnread = document.querySelector('#books-unread');
@@ -64,6 +72,8 @@ function showBooksInLibrary() {
     bookDelete.appendChild(deleteSymbol);
     bookRow.appendChild(bookDelete);
   }
+  // SAVE TO LOCAL STORAGE
+  window.localStorage.setItem('books', JSON.stringify(myLibrary));
 }
 
 function addBookToLibrary(title, author, pages, status) {
@@ -77,13 +87,10 @@ function getInputValue() {
   const nameInput = document.querySelector('#name');
   const numberInput = document.querySelector('#number');
   const checkbox = document.querySelector('input[name="checkbox"]');
-  if (checkbox.checked) {
-    addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, true);
-  } else {
-    addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, false);
-  }
+  addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, checkbox.checked);
 }
 
+// FORM VALIDATION
 function validateForm(event) {
   event.preventDefault();
   const inputs = document.querySelectorAll('.required');
@@ -99,13 +106,13 @@ function validateForm(event) {
     }
   }
   if (counter === inputs.length) {
-    if (checkbox.checked) {
-      checkbox.checked = false;
-    }
     getInputValue();
     for (let i = 0; i < inputs.length; i += 1) {
       inputs[i].value = '';
       validationTexs[i].style.display = 'none';
+    }
+    if (checkbox.checked) {
+      checkbox.checked = false;
     }
   }
 }
@@ -148,7 +155,12 @@ function listenClicks() {
   });
 }
 
-showLibraryInfo();
-addBookToLibrary('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', '464', true);
-addBookToLibrary('The Lady of the Lake', 'Andrzej Sapkowski', '544', false);
+window.onload = function clearInputs() {
+  const inputs = document.querySelectorAll('.required');
+  for (let i = 0; i < inputs.length; i += 1) {
+    inputs[i].value = '';
+  }
+};
+
+showBooksInLibrary();
 listenClicks();
