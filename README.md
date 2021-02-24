@@ -27,7 +27,6 @@
 * [Font Awesome Icons](https://fontawesome.com/)
 
 #### **Outcome:**
-* Used **Git** and **GitHub** for project management
 * Used **HTML5 semantic elements** for better structure and readability
 * Used **CSS Flexbox** module to create layout
 * Adapted **fancy style** for input placeholders
