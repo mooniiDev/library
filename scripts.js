@@ -103,7 +103,7 @@ function validateForm(event) {
   } else {
     nameErr.style.display = 'none';
   }
-  if (numberInput.value === '' || numberInput.value <= 0) {
+  if (numberInput.value === '' || numberInput.value.match(/[^1-9]/) || numberInput.value <= 0) {
     numberErr.style.display = 'block';
   } else {
     numberErr.style.display = 'none';
