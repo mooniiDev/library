@@ -36,6 +36,8 @@ function showLibraryInfo() {
 }
 
 function showBooksInLibrary() {
+  // SAVE TO LOCAL STORAGE
+  localStorage.setItem('books', JSON.stringify(myLibrary));
   showLibraryInfo();
   const bookList = document.querySelector('#table-body');
   bookList.textContent = '';
@@ -72,8 +74,6 @@ function showBooksInLibrary() {
     bookDelete.appendChild(deleteSymbol);
     bookRow.appendChild(bookDelete);
   }
-  // SAVE TO LOCAL STORAGE
-  window.localStorage.setItem('books', JSON.stringify(myLibrary));
 }
 
 function addBookToLibrary(title, author, pages, status) {
@@ -82,38 +82,39 @@ function addBookToLibrary(title, author, pages, status) {
   showBooksInLibrary();
 }
 
-function getInputValue() {
-  const titleInput = document.querySelector('#title');
-  const nameInput = document.querySelector('#name');
-  const numberInput = document.querySelector('#number');
-  const checkbox = document.querySelector('input[name="checkbox"]');
-  addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, checkbox.checked);
-}
-
 // FORM VALIDATION
 function validateForm(event) {
   event.preventDefault();
-  const inputs = document.querySelectorAll('.required');
-  const validationTexs = document.querySelectorAll('.validation-text');
+  const form = document.querySelector('form');
+  const titleInput = document.querySelector('#title');
+  const titleErr = document.querySelector('.title');
+  const nameInput = document.querySelector('#name');
+  const nameErr = document.querySelector('.name');
+  const numberInput = document.querySelector('#number');
+  const numberErr = document.querySelector('.number');
   const checkbox = document.querySelector('input[name="checkbox"]');
-  let counter = 0;
-  for (let i = 0; i < inputs.length; i += 1) {
-    if (inputs[i].value === '') {
-      validationTexs[i].style.display = 'block';
-    } else if (inputs[i].value !== '') {
-      validationTexs[i].style.display = 'none';
-      counter += 1;
-    }
+  if (titleInput.value === '') {
+    titleErr.style.display = 'block';
+  } else {
+    titleErr.style.display = 'none';
   }
-  if (counter === inputs.length) {
-    getInputValue();
-    for (let i = 0; i < inputs.length; i += 1) {
-      inputs[i].value = '';
-      validationTexs[i].style.display = 'none';
-    }
+  if (nameInput.value === '') {
+    nameErr.style.display = 'block';
+  } else {
+    nameErr.style.display = 'none';
+  }
+  if (numberInput.value === '' || numberInput.value <= 0) {
+    numberErr.style.display = 'block';
+  } else {
+    numberErr.style.display = 'none';
+  }
+  if (titleInput.value !== '' && nameInput.value !== '' && numberInput.value !== '' && numberInput.value > 0) {
     if (checkbox.checked) {
-      checkbox.checked = false;
+      addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, true);
+    } else {
+      addBookToLibrary(titleInput.value, nameInput.value, numberInput.value, false);
     }
+    form.reset();
   }
 }
 
@@ -154,13 +155,6 @@ function listenClicks() {
     showBooksInLibrary();
   });
 }
-
-window.onload = function clearInputs() {
-  const inputs = document.querySelectorAll('.required');
-  for (let i = 0; i < inputs.length; i += 1) {
-    inputs[i].value = '';
-  }
-};
 
 showBooksInLibrary();
 listenClicks();

@@ -22,32 +22,32 @@
 
     <form>
       <div class="input-block">
-        <input id="title" class="required" type="text" name="title" required>
+        <input id="title" type="text" name="title" autocomplete="off" required>
         <span class="placeholder">What is the title of the book?</span>
         <div class="validation-block">
-          <p class="validation-text">Please fill out this field.</p>
+          <p class="validation-text title">Please fill out this field.</p>
         </div>
       </div>
 
       <div class="input-block">
-        <input id="name" class="required" type="text" name="name" required>
+        <input id="name" type="text" name="name" autocomplete="off" required>
         <span class="placeholder">Who is the author of the book?</span>
         <div class="validation-block">
-          <p class="validation-text">Please fill out this field.</p>
+          <p class="validation-text name">Please fill out this field.</p>
         </div>
       </div>
 
       <div class="input-block">
-        <input id="number" class="required" type="number" name="number" min="1" step=1 required>
+        <input id="number" type="text" name="number" autocomplete="off" required>
         <span class="placeholder">How many pages are in the book?</span>
         <div class="validation-block">
-          <p class="validation-text">Please enter a number.</p>
+          <p class="validation-text number">Please enter a number bigger than 0.</p>
         </div>
       </div>
 
       <label class="checkbox">
         <span class="checkbox-input">
-          <input type="checkbox" name="checkbox">
+          <input type="checkbox" name="checkbox" autocomplete="off">
           <span class="checkbox-control">
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
               <path fill='none' stroke='currentColor' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59'></svg>
