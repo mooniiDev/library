@@ -34,9 +34,9 @@
 * Learned how to **create a custom checkbox**
 * Learned how to **create a tooltip**
 * Learned how to **create a modal**
-* Learned how to save data to **`localStorage`**
+* Learned how to **save data to** `localStorage`
 * First time used **fonts from local resource**
-* First time added **color palette to CSS `:root`**
+* First time added **color palette to CSS** `:root`
 * Deepened knowledge of **DOM manipulation**, **HTML structure**, **CSS styling subtleties** and **JS functionality** in general
 * Had lots of fun with styling! 🎨
 
