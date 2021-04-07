@@ -1,10 +1,12 @@
 let myLibrary = [];
 
-function Books(title, author, pages, status) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.status = status;
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
+  }
 }
 
 // GET BOOKS FROM LOCAL STORAGE
@@ -77,7 +79,7 @@ function showBooksInLibrary() {
 }
 
 function addBookToLibrary(title, author, pages, status) {
-  const book = new Books(title, author, pages, status);
+  const book = new Book(title, author, pages, status);
   myLibrary.push(book);
   showBooksInLibrary();
 }
