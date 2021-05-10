@@ -156,7 +156,7 @@ button:focus {
   padding: 0 0 30px 0;
 }
 /* TOOLTIP STYLE */
-.project-info .tooltip-text {
+.hover-icon .tooltip-text {
   visibility: hidden;
   padding: 10px;
   position: absolute;
@@ -167,7 +167,7 @@ button:focus {
   z-index: 1;
   bottom: 100%;
 }
-.project-info:hover .tooltip-text {
+.hover-icon:hover .tooltip-text {
   visibility: visible;
 }
 #crafted-by {
