@@ -150,13 +150,11 @@ button:focus {
   color: var(--red);
 }
 
-#footer {
-  position: fixed;
-  bottom: 0;
-  padding: 0 0 30px 0;
-}
 /* TOOLTIP STYLE */
-.hover-icon .tooltip-text {
+.project-info {
+  cursor: pointer;
+}
+.project-info .tooltip-text {
   visibility: hidden;
   padding: 10px;
   position: absolute;
@@ -167,16 +165,23 @@ button:focus {
   z-index: 1;
   bottom: 100%;
 }
-.hover-icon:hover .tooltip-text {
+.project-info:hover .tooltip-text {
   visibility: visible;
 }
-#crafted-by {
-  margin-bottom: 0;
+
+/* FOOTER */
+#footer {
+  position: fixed;
+  bottom: 0;
+  padding: 0 0 30px 0;
 }
 #footer a {
   text-decoration: none;
   color: #1F3E59;
   font-weight: 900;
+}
+#crafted-by {
+  margin-bottom: 0;
 }
 
 /* LIBRARY INFO STYLE */
